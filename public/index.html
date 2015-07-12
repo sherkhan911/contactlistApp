@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<!-- Latest compiled and minified JavaScript --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<title>
+		Contact List App
+		</title>
+	</head>
+	<body>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js'></script>
+		<script src='controllers/controller.js'></script>
+		<div class="container" ng-controller="AppCtrl">
+			<h1>Contact List App</h1>
+			<table class="table">
+				<<caption>Contacts</caption>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Number</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contact in contactList">
+						<td>{{contact.name}}</td>
+						<td>{{contact.email}}</td>
+						<td>{{contact.number}}</td>
+						<td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>						
+						<td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+					</tr>
+					<tr>
+						<td>
+							<input class="form-control" ng-model="contact.name">
+						</td>
+						<td>
+							<input class="form-control" ng-model="contact.email">
+						</td>
+						<td>
+							<input class="form-control" ng-model="contact.number">
+						</td>
+						<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+						<td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn -info" ng-click="deselect()">Clear</button></td>
+
+					</tr>
+				</tbody>
+			</table>
+			<table class="table">
+				<caption>Groups</caption>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>contacts</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control" ng-model="group.name"></td>
+						<td><input class="form-control" ng-model="group.contacts"></td>
+					</tr>
+					<tr ng-repeat="group in Groups">
+						<td>{{group.name}}</td>
+						<td>{{group.contacts}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
